@@ -3,20 +3,20 @@
 # earlier versions of Drupal are tracked in `community/PHP/`
 
 # Ignore configuration files that may contain sensitive information
-/sites/*/*settings*.php
-/sites/*/*services*.yml
+/docroot/sites/*/*settings*.php
+/docroot/sites/*/*services*.yml
 
 # Ignore paths that may contain user-generated content
-/sites/*/files
-/sites/*/public
-/sites/*/private
-/sites/*/files-public
-/sites/*/files-private
+/docroot/sites/*/files
+/docroot/sites/*/public
+/docroot/sites/*/private
+/docroot/sites/*/files-public
+/docroot/sites/*/files-private
 
 # Ignore paths that may contain temporary files
-/sites/*/translations
-/sites/*/tmp
-/sites/*/cache
+/docroot/sites/*/translations
+/docroot/sites/*/tmp
+/docroot/sites/*/cache
 
 # Ignore testing related files
 /sites/simpletest
@@ -38,8 +38,6 @@
 /.gitattributes
 /.htaccess
 /autoload.php
-/composer.json
-/composer.lock
 /example.gitignore
 /index.php
 /LICENSE.txt
