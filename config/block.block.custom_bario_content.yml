@@ -1,0 +1,22 @@
+uuid: 94a6615f-8f9b-4cc9-85d7-b91bffbfe690
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - custom_bario
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: custom_bario_content
+theme: custom_bario
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

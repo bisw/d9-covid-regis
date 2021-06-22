@@ -1,0 +1,22 @@
+uuid: dcb16cbe-dd1b-4a52-a0a3-206da5f34786
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: covid_centre
+label: 'Covid Centre'
+type: 'canonical_entities:node'
+pattern: '[node:title]'
+selection_criteria:
+  a101bea3-54e4-48bd-94f8-65fdac6f9a6c:
+    id: node_type
+    bundles:
+      vaccine_centre: vaccine_centre
+    negate: false
+    context_mapping:
+      node: node
+    uuid: a101bea3-54e4-48bd-94f8-65fdac6f9a6c
+selection_logic: and
+weight: -5
+relationships: {  }

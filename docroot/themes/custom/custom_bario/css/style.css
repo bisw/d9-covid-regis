@@ -1,0 +1,8 @@
+/**
+ * @file
+ * Subtheme specific CSS.
+ */
+
+ .block-covid-vaccine-city .content a {
+     display: block;    
+ }

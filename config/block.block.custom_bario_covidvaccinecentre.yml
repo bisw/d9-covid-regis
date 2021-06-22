@@ -1,0 +1,25 @@
+uuid: ab3da6c2-fc49-4165-9639-bb0b18f3d147
+langcode: en
+status: true
+dependencies:
+  module:
+    - covid_vaccine
+    - system
+  theme:
+    - custom_bario
+id: custom_bario_covidvaccinecentre
+theme: custom_bario
+region: content
+weight: 0
+provider: null
+plugin: covid_vaccine_centre
+settings:
+  id: covid_vaccine_centre
+  label: 'Covid Vaccination centre in your city'
+  provider: covid_vaccine
+  label_display: visible
+visibility:
+  request_path:
+    id: request_path
+    pages: '/user/*'
+    negate: false

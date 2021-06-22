@@ -1,0 +1,28 @@
+uuid: ea891432-3f85-445b-8289-0404eb58f4c9
+langcode: en
+status: true
+dependencies:
+  module:
+    - covid_vaccine
+    - node
+  theme:
+    - bartik
+id: othervaccinecentre
+theme: bartik
+region: content
+weight: 0
+provider: null
+plugin: other_covid_vaccine_centre
+settings:
+  id: other_covid_vaccine_centre
+  label: 'Other Vaccine Centre'
+  provider: covid_vaccine
+  label_display: visible
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      vaccine_centre: vaccine_centre
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

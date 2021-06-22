@@ -1,0 +1,33 @@
+uuid: 9dcde460-8d3d-4f03-a2eb-04fcddeee193
+langcode: en
+status: true
+dependencies:
+  module:
+    - covid_vaccine
+    - system
+    - user
+  theme:
+    - custom_bario
+id: covidvaccinecity
+theme: custom_bario
+region: sidebar_first
+weight: -6
+provider: null
+plugin: covid_vaccine_city
+settings:
+  id: covid_vaccine_city
+  label: 'Other Cities'
+  provider: covid_vaccine
+  label_display: visible
+visibility:
+  request_path:
+    id: request_path
+    pages: "/vaccine-centre/*\r\n/user/*"
+    negate: false
+  user_role:
+    id: user_role
+    roles:
+      authenticated: authenticated
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

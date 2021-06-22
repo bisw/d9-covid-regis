@@ -1,0 +1,7 @@
+covid_vaccine.registration:
+  path: '/vaccine-registration'
+  defaults:
+    _controller: '\Drupal\covid_vaccine\Controller\RegistrationController::getContent'
+    _title: 'Subscriber Registration'
+  requirements:
+    _permission: 'administer site configuration'

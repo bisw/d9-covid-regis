@@ -1,0 +1,115 @@
+<?php
+
+use Drupal\node\Entity\Node;
+use Drupal\views\ViewExecutable;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+use \Drupal\node\NodeInterface;
+use Drupal\views\Plugin\views\query\QueryPluginBase;
+use \Drupal\user\Entity\User;
+
+
+/**
+ * Implements hook_form_alter() on behalf of testing.module.
+ */
+function covid_vaccine_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if ($form_id == 'profile_personal_information_form' || $form_id == 'profile_personal_information_edit_form') {
+    $current_user = \Drupal::currentUser();
+
+    if ($current_user->id() == 0) {
+      $form['field_vaccine_centre']['#access'] = FALSE;
+      return;
+    }
+
+    $roles = $current_user->getRoles();
+    $centre = $form['field_vaccine_centre']['widget'][0]['target_id']['#default_value'];
+    $centre_id = !empty($centre) ? $centre->id() : '';
+    if (!in_array('administrator', $roles) && $centre_id) {
+      $form['field_vaccine_centre']['widget'][0]['target_id']['#attributes']['disabled'] = 'disabled';
+    }
+  }
+}
+
+function covid_vaccine_views_query_alter(ViewExecutable $view, QueryPluginBase $query) {
+  // (Example assuming a view with an exposed filter on node title.)
+  // If the input for the title filter is a positive integer, filter against
+  // node ID instead of node title.
+  if ($view->id() == 'all_vaccine_centre' && $view->current_display == 'block_2') {
+
+    // Traverse through the 'where' part of the query.
+    foreach ($query->where as &$condition_group) {
+      foreach ($condition_group['conditions'] as &$condition) {
+
+        // If this is the part of the query filtering on title, change the
+        // condition to filter on node ID.
+        if ($condition['field'] == 'node_field_data.nid') {
+          $node = \Drupal::routeMatch()->getParameter('node');
+          $nid = 0;
+          if ($node instanceof NodeInterface) {
+            // You can get nid and anything else you need from the node object.
+            $nid = $node->id();
+          }
+
+          $condition = [
+            'field' => 'node_field_data.nid',
+            'value' => $nid,
+            'operator' => '!=',
+          ];
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_presave().
+ */
+function covid_vaccine_entity_presave(EntityInterface $entity) {
+  if ($entity->bundle() == 'personal_information') {
+		$vaccine_centre = $entity->get('field_vaccine_centre')->getValue();
+      
+    if (empty($vaccine_centre)) {
+      return;
+    } else {
+      $vaccine_centre_id = $vaccine_centre[0]['target_id'];
+    }
+
+    $user = User::load($entity->get('uid')->getValue()[0]['target_id']);
+    $active_profile = \Drupal::getContainer()
+      ->get('entity_type.manager')
+      ->getStorage('profile')
+      ->loadByUser($user, ['personal_information']);
+
+    $current_centre = $active_profile->get('field_vaccine_centre')->getValue();
+    $current_centre_id = empty($current_centre) ? '' : $current_centre[0]['target_id'];
+
+    if ($vaccine_centre_id != $current_centre_id) {
+      _covid_vaccine_decrease_centre_slot_sum($vaccine_centre_id);
+      _covid_vaccine_increase_centre_slot_sum($current_centre_id);
+    }
+	}
+}
+
+function _covid_vaccine_decrease_centre_slot_sum($id) {
+  if (!empty($nid)) {
+    $node = Node::load($id);
+
+    if ($node instanceof NodeInterface) {
+      $slot = $node->get('field_slots')->value;
+      $slot = empty($slot) ? 0 : $slot - 1;
+      $node->set('field_slots', $slot);
+      $node->save();
+    }
+  }
+}
+
+function _covid_vaccine_increase_centre_slot_sum($id) {
+  if (!empty($nid)) {
+    $node = Node::load($id);
+
+    if ($node instanceof NodeInterface) {
+      $node->set('field_slots', $node->get('field_slots')->value + 1);
+      $node->save();
+    }
+  }
+}

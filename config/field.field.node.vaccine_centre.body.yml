@@ -1,0 +1,23 @@
+uuid: 1dbf0d15-8ae2-4799-b0b9-6285f160a683
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.vaccine_centre
+  module:
+    - text
+id: node.vaccine_centre.body
+field_name: body
+entity_type: node
+bundle: vaccine_centre
+label: Description
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

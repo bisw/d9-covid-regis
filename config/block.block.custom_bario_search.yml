@@ -1,0 +1,23 @@
+uuid: c8beb69a-8061-4cf4-aec7-a8bcb3d04921
+langcode: en
+status: false
+dependencies:
+  module:
+    - search
+  theme:
+    - custom_bario
+_core:
+  default_config_hash: Q-4EcGAsu26ICu4ejEz0uE1zv4akpiaOsizxgZfAmEw
+id: custom_bario_search
+theme: custom_bario
+region: sidebar_first
+weight: -5
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: Search
+  provider: search
+  label_display: visible
+  page_id: node_search
+visibility: {  }

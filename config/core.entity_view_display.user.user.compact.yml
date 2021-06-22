@@ -26,4 +26,5 @@ content:
     third_party_settings: {  }
     label: hidden
 hidden:
+  covid_registration_profiles: true
   member_for: true

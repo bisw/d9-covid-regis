@@ -1,0 +1,18 @@
+uuid: 200a0960-db97-473b-b5ae-ff073bed79e2
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Vaccine Centre'
+type: vaccine_centre
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

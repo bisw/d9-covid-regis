@@ -1,0 +1,29 @@
+uuid: 0699bd05-e255-46a3-8c1b-4f383651bad1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_vaccine_centre
+    - node.type.vaccine_centre
+    - profile.type.personal_information
+id: profile.personal_information.field_vaccine_centre
+field_name: field_vaccine_centre
+entity_type: profile
+bundle: personal_information
+label: 'Vaccine Centre'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      vaccine_centre: vaccine_centre
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

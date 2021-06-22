@@ -103,7 +103,7 @@ $databases = [];
  * properties will vary depending on the driver.  For SQLite, you must
  * specify a database file name in a directory that is writable by the
  * webserver.  For most other drivers, you must specify a
- * username, password, host, and database name.
+ * username, password, host, and database name. get variable value using drush
  *
  * Drupal core implements drivers for mysql, pgsql, and sqlite. Other drivers
  * can be provided by contributed or custom modules. To use a contributed or
@@ -253,7 +253,7 @@ $databases = [];
  * directory in the public files path. The setting below allows you to set
  * its location.
  */
-# $settings['config_sync_directory'] = '/directory/outside/webroot';
+$settings['config_sync_directory'] = '../config';
 
 /**
  * Settings:
@@ -812,4 +812,4 @@ $databases['default']['default'] = array (
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
 );
-$settings['config_sync_directory'] = 'sites/default/files/config_UDSPwU1FwxFFK__vTHKp-b_jZOxAsSmvR8TpSMuNywbs40nz28pAJ9MifegSHjni1kEykBQ-DA/sync';
+// $settings['config_sync_directory'] = 'sites/default/files/config_UDSPwU1FwxFFK__vTHKp-b_jZOxAsSmvR8TpSMuNywbs40nz28pAJ9MifegSHjni1kEykBQ-DA/sync';

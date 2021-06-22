@@ -1,0 +1,60 @@
+uuid: ddb5617c-ab87-474f-83d0-77a2fc454c9f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.profile.personal_information.field_address
+    - field.field.profile.personal_information.field_date_of_birth
+    - field.field.profile.personal_information.field_full_name
+    - field.field.profile.personal_information.field_gender
+    - field.field.profile.personal_information.field_vaccine_centre
+    - profile.type.personal_information
+  module:
+    - address
+    - datetime
+    - options
+id: profile.personal_information.default
+targetEntityType: profile
+bundle: personal_information
+mode: default
+content:
+  field_address:
+    weight: 0
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: address_default
+    region: content
+  field_date_of_birth:
+    weight: 2
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_full_name:
+    weight: 1
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_gender:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_vaccine_centre:
+    weight: 4
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden: {  }

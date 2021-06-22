@@ -1,0 +1,22 @@
+uuid: eff51454-891f-4b5f-93bd-46d287d0c72d
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - custom_bario
+_core:
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: custom_bario_messages
+theme: custom_bario
+region: highlighted
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

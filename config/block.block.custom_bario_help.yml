@@ -1,0 +1,22 @@
+uuid: c9b446a2-22e0-42db-8b2f-be2e95d101b1
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - custom_bario
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: custom_bario_help
+theme: custom_bario
+region: content
+weight: -30
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

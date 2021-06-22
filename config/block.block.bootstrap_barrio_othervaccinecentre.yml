@@ -1,0 +1,28 @@
+uuid: 1fe9f194-7dcc-4e7c-a31b-1baeb8d1e8a2
+langcode: en
+status: true
+dependencies:
+  module:
+    - covid_vaccine
+    - node
+  theme:
+    - bootstrap_barrio
+id: bootstrap_barrio_othervaccinecentre
+theme: bootstrap_barrio
+region: content
+weight: 0
+provider: null
+plugin: other_covid_vaccine_centre
+settings:
+  id: other_covid_vaccine_centre
+  label: 'Other Vaccine Centre'
+  provider: covid_vaccine
+  label_display: visible
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      vaccine_centre: vaccine_centre
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

@@ -1,0 +1,51 @@
+uuid: 43e13f28-63dd-4908-a7c3-12d86e4373e0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_address
+    - profile.type.personal_information
+  module:
+    - address
+id: profile.personal_information.field_address
+field_name: field_address
+entity_type: profile
+bundle: personal_information
+label: Address
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    country_code: ES
+    langcode: ''
+    given_name: ''
+    family_name: ''
+    organization: ''
+    address_line1: ''
+    address_line2: ''
+    postal_code: ''
+    locality: ''
+    administrative_area: ''
+    additional_name: null
+    sorting_code: null
+    dependent_locality: null
+default_value_callback: ''
+settings:
+  available_countries: {  }
+  langcode_override: ''
+  field_overrides:
+    givenName:
+      override: hidden
+    additionalName:
+      override: hidden
+    familyName:
+      override: hidden
+    organization:
+      override: hidden
+    sortingCode:
+      override: hidden
+    dependentLocality:
+      override: hidden
+  fields: {  }
+field_type: address

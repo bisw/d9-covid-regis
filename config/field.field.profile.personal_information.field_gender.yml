@@ -1,0 +1,21 @@
+uuid: bebde841-1090-4d60-a927-3680c289df63
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_gender
+    - profile.type.personal_information
+  module:
+    - options
+id: profile.personal_information.field_gender
+field_name: field_gender
+entity_type: profile
+bundle: personal_information
+label: Gender
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

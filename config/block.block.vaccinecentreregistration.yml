@@ -1,0 +1,36 @@
+uuid: 90a55aab-672a-4f43-b949-8fcb348ce109
+langcode: en
+status: true
+dependencies:
+  module:
+    - covid_vaccine
+    - node
+    - user
+  theme:
+    - custom_bario
+id: vaccinecentreregistration
+theme: custom_bario
+region: sidebar_first
+weight: -8
+provider: null
+plugin: centre_registration
+settings:
+  id: centre_registration
+  label: 'Vaccine Centre Registration'
+  provider: covid_vaccine
+  label_display: '0'
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      vaccine_centre: vaccine_centre
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  user_role:
+    id: user_role
+    roles:
+      authenticated: authenticated
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

@@ -1,0 +1,57 @@
+uuid: e95ef615-e4c9-4ac9-b2c9-6375977c26e4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.profile.personal_information.field_address
+    - field.field.profile.personal_information.field_date_of_birth
+    - field.field.profile.personal_information.field_full_name
+    - field.field.profile.personal_information.field_gender
+    - field.field.profile.personal_information.field_vaccine_centre
+    - profile.type.personal_information
+  module:
+    - address
+    - datetime
+id: profile.personal_information.default
+targetEntityType: profile
+bundle: personal_information
+mode: default
+content:
+  field_address:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: address_default
+    region: content
+  field_date_of_birth:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_full_name:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_gender:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_vaccine_centre:
+    weight: 26
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+hidden:
+  is_default: true

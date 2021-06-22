@@ -1,0 +1,5 @@
+name : 'Covid Vaccine'
+description : 'Provides a common functionality for the site.'
+core_version_requirement: ^8 || ^9
+type: module
+package: Custom

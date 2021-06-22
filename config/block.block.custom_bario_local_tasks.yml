@@ -1,0 +1,22 @@
+uuid: 03396fb7-4a8b-4691-b2db-87ebcb6a3519
+langcode: en
+status: true
+dependencies:
+  theme:
+    - custom_bario
+_core:
+  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
+id: custom_bario_local_tasks
+theme: custom_bario
+region: content
+weight: -40
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

@@ -1,0 +1,20 @@
+uuid: 77a81cb0-342a-4d6b-a305-789f3adcc279
+langcode: en
+status: true
+dependencies:
+  theme:
+    - custom_bario
+_core:
+  default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
+id: custom_bario_page_title
+theme: custom_bario
+region: content
+weight: -50
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }
